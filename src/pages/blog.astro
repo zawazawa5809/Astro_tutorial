@@ -1,5 +1,6 @@
 ---
 const pageTitle = "My Astro Learning Blog";
+import Header from "../components/Header.astro"
 
 ---
 
@@ -12,9 +13,7 @@ const pageTitle = "My Astro Learning Blog";
 		<title>My Astro website</title>
 	</head>
 	<body>
-<a href="/">Home</a>
-<a href="/about/">About</a>
-<a href="/blog/">{pageTitle}</a>
+		<Header />
   <h1>{pageTitle}</h1>
   <p>This is where I will post about my journey learning Astro.</p>
     <ul>
