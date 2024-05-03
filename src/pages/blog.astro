@@ -1,16 +1,18 @@
 ---
 const pageTitle = "My Astro Learning Blog";
-import Header from "../components/Header.astro"
 import BaseLayout from "../layouts/BaseLayout.astro";
+import BlogPost from "../components/BlogPost.astro";
+const allPosts = await Astro.glob("../pages/posts/*.md");
 const base = import.meta.env.BASE_URL;
 ---
 
 <BaseLayout pageTitle={pageTitle}>
   <p>This is where I will post about my journey learning Astro.</p>
-    <ul>
-  <a href={`${base}/`}>Home</a>
-      <li><a href={`${base}/posts/post-1`}>Post 1</a></li>
-      <li><a href={`${base}/posts/post-2`}>Post 2</a></li>
-      <li><a href={`${base}/posts/post-3`}>Post 3</a></li>
-    </ul>
+  <ul>
+    {
+      allPosts.map((post) => (
+        <BlogPost url={post.url} title={post.frontmatter.title} />
+      ))
+    }
+  </ul>
 </BaseLayout>
