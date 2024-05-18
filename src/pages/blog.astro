@@ -12,7 +12,7 @@ const base = import.meta.env.BASE_URL;
   <ul>
     {
       allPosts.map((post) => (
-        <BlogPost url={`/posts/${post.slug}/`} title={post.data.title} />
+        <BlogPost url={`${base}/posts/${post.slug}/`} title={post.data.title} />
       ))
     }
   </ul>
